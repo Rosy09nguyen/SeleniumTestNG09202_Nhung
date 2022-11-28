@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Selenium_TestNG_092022" />
+        <module name="SeleniumTestNG09202_Nhung" />
       </profile>
     </annotationProcessing>
   </component>

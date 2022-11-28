@@ -1,6 +1,7 @@
 package BT1;
 
 import Common.BaseTest;
+import Helper.Keywords;
 import Locators.Category;
 import Locators.Login;
 import org.openqa.selenium.By;
@@ -20,19 +21,19 @@ public class AddCategory_Assert extends BaseTest {
     SoftAssert softassert = new SoftAssert();
 
     @BeforeMethod
-    public void Login() throws InterruptedException {
+    public void Login() {
         driver.get("https://demo.activeitzone.com/ecommerce/login");
         driver.findElement(By.xpath(Login.Click_Copy)).click();
         driver.findElement(By.xpath(Login.Click_Login)).click();
-        Thread.sleep(3000);
+        Keywords.sleep(3);
     }
 
     @Test
-    public void addCategory() throws InterruptedException {
+    public void addCategory() {
 
         driver.findElement(By.xpath(Category.Click_Products)).click();
         driver.findElement(By.xpath(Category.Click_Category)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_AddNewCategory)).click();
 
         System.out.println("So sánh tên Header và Label Text Box trong form");
@@ -63,47 +64,47 @@ public class AddCategory_Assert extends BaseTest {
         }
 
         driver.findElement(By.xpath(Category.Input_Name)).sendKeys(categoryName);
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_ParentCategory)).click();
         driver.findElement(By.xpath(Category.Input_ParentCategory)).sendKeys("Women shoe");
         driver.findElement(By.xpath(Category.Select_ParentCategory)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Input_OrderNumber)).sendKeys("10");
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Type)).click();
-        Category.Select_Type("Physical");
-        Thread.sleep(2000);
+        Category.Select_Type("Digital");
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Banner)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Input_Banner)).sendKeys("banner-01-02", Keys.ENTER);
-        Thread.sleep(10000);
+        Keywords.sleep(10);
         driver.findElement(By.xpath(Category.Click_BannerOption)).click();
         driver.findElement(By.xpath(Category.Click_AddBanner)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Icon)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Input_Icon)).sendKeys("S128");
-        Thread.sleep(4000);
+        Keywords.sleep(4);
         driver.findElement(By.xpath(Category.Click_IconOption)).click();
         driver.findElement(By.xpath(Category.Click_AddIcon)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Input_MetalTitle)).sendKeys("shoe 01");
         driver.findElement(By.xpath(Category.Input_MetalDescription)).sendKeys("shoe in medium price");
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_FilteringATB)).click();
         driver.findElement(By.xpath(Category.Input_FilteringATB)).sendKeys("Fabric");
         driver.findElement(By.xpath(Category.Select_FilteringATB)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Save)).click();
-        Thread.sleep(4000);
+        Keywords.sleep(4);
         softassert.assertAll();
     }
 
     @Test
-    public void searchNewCategory() throws InterruptedException {
+    public void searchNewCategory(){
         driver.findElement(By.xpath(Category.Click_Products)).click();
         driver.findElement(By.xpath(Category.Click_Category)).click();
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         System.out.println("Kiểm tra label Category Overview");
         String Header_CategoryOverview_Actual = driver.findElement(By.xpath(Category.LabelHeader_CategoryOverview)).getText();
         softassert.assertEquals(Header_CategoryOverview_Actual, "All Categories", "sai tên Trang Category");
@@ -115,7 +116,7 @@ public class AddCategory_Assert extends BaseTest {
         softassert.assertEquals(Column_Options_Actual, "Options", "sai tên cột tác vụ");
 
         driver.findElement(By.xpath(Category.Input_SearchCategory)).sendKeys(categoryName, Keys.ENTER);
-        Thread.sleep(2000);
+        Keywords.sleep(2);
         // So sánh kết quả add Category
         WebElement categoryElement = driver.findElement(By.xpath(Category.categorySearchResult));
         String categoryValue = categoryElement.getText();
