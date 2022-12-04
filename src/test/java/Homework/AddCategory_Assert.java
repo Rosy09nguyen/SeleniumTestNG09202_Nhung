@@ -1,4 +1,4 @@
-package BT1;
+package Homework;
 
 import Common.BaseTest;
 import Helper.Keywords;
@@ -17,7 +17,7 @@ import java.util.List;
 
 
 public class AddCategory_Assert extends BaseTest {
-    public static String categoryName = "Test-Nhung2";
+    public static String categoryName = "Test Nhung";
     SoftAssert softassert = new SoftAssert();
 
     @BeforeMethod
@@ -83,7 +83,7 @@ public class AddCategory_Assert extends BaseTest {
         Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Icon)).click();
         Keywords.sleep(2);
-        driver.findElement(By.xpath(Category.Input_Icon)).sendKeys("S128");
+        driver.findElement(By.xpath(Category.Input_Icon)).sendKeys("T-29",Keys.ENTER);
         Keywords.sleep(4);
         driver.findElement(By.xpath(Category.Click_IconOption)).click();
         driver.findElement(By.xpath(Category.Click_AddIcon)).click();
@@ -92,7 +92,7 @@ public class AddCategory_Assert extends BaseTest {
         driver.findElement(By.xpath(Category.Input_MetalDescription)).sendKeys("shoe in medium price");
         Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_FilteringATB)).click();
-        driver.findElement(By.xpath(Category.Input_FilteringATB)).sendKeys("Fabric");
+        driver.findElement(By.xpath(Category.Input_FilteringATB)).sendKeys("Size");
         driver.findElement(By.xpath(Category.Select_FilteringATB)).click();
         Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Save)).click();
@@ -126,6 +126,5 @@ public class AddCategory_Assert extends BaseTest {
         softassert.assertAll();
 
     }
-
 
 }

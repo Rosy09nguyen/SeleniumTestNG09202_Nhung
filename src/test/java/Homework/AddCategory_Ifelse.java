@@ -1,4 +1,4 @@
-package BT1;
+package Homework;
 
 import Common.BaseTest;
 import Helper.Keywords;
@@ -42,7 +42,7 @@ public class AddCategory_Ifelse extends BaseTest {
         Keywords.sleep(2);
         driver.findElement(By.xpath(Category.Click_Icon)).click();
         Keywords.sleep(2);
-        driver.findElement(By.xpath(Category.Input_Icon)).sendKeys("S128");
+        driver.findElement(By.xpath(Category.Input_Icon)).sendKeys("S128", Keys.ENTER);
         Keywords.sleep(2);;
         driver.findElement(By.xpath(Category.Click_IconOption)).click();
         driver.findElement(By.xpath(Category.Click_AddIcon)).click();
